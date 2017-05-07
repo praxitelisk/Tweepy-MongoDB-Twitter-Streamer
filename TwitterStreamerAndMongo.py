@@ -1,9 +1,10 @@
 #A generic python program to download tweets from
-#Twitter and using Twitter API with the aid of the 
+#Twitter and using Twitter API with the aid of the
 #library Tweepy and save it to mongoDB
 #Do not forget to download using pip the Tweepy and pymongo libraries
 
 from httplib import IncompleteRead # Python 2
+import requests
 import sys
 import json
 import time
@@ -94,7 +95,7 @@ if __name__ == '__main__':
             #This line filter Twitter Streams to capture data by the keyword-s
             stream.filter(track=keyword, stall_warnings=True)
 
-        except IncompleteRead:
+        except Exception:
             pass
             # Oh well, reconnect and keep trucking
 
